@@ -1,153 +1,242 @@
-const DAYS = ["Dilluns","Dimarts","Dimecres","Dijous","Divendres","Dissabte","Diumenge"];
-const STORAGE = "planMarc2026_v1";
+const DAYS = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
 
 const schedule = [
-  {day:0,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
-  {day:0,time:"13:45–14:45",title:"GYM",sub:"Sessió base",type:"gym"},
-  {day:0,time:"15:55–16:50",title:"M08_6 · VAZQU",sub:"DAW",type:"class"},
-  {day:0,time:"17:00–17:45",title:"IPO2_1 · AGUIL",sub:"No fer IPO II",type:"class",skip:true},
-  {day:0,time:"18:15–19:10",title:"M07_0 · GISTA",sub:"DAW",type:"class"},
-  {day:0,time:"19:10–20:05",title:"M12_0 · CRESP / GISTA",sub:"NO FER M12",type:"class",skip:true},
-  {day:0,time:"20:05–21:00",title:"M12_0 · CRESP / GISTA",sub:"NO FER M12",type:"class",skip:true},
+  // LUNES
+  {day:0,time:"08:00–13:00",title:"PRÁCTICAS",sub:"Empresa · dual",type:"practice",hours:5},
+  {day:0,time:"13:00–13:45",title:"COMER",sub:"Descanso",type:"study",hours:.75},
+  {day:0,time:"13:45–14:45",title:"GYM",sub:"Sesión base · prioritario",type:"gym",hours:1},
+  {day:0,time:"14:45–15:30",title:"DUCHA + DESPLAZAMIENTO",sub:"Transición",type:"study",hours:.75},
+  {day:0,time:"15:55–16:50",title:"M08",sub:"DAW",type:"class",hours:.92},
+  {day:0,time:"16:50–18:15",title:"TIEMPO LIBRE / PROYECTO",sub:"Hueco de IPO II · flexible",type:"free",hours:1.42},
+  {day:0,time:"18:15–19:10",title:"M07",sub:"DAW",type:"class",hours:.92},
+  {day:0,time:"19:10–21:00",title:"WEBS MONETIZABLES",sub:"Hueco de M12 · bloque profundo",type:"project",project:"web",hours:1.83},
+  {day:0,time:"21:00–22:00",title:"CENA",sub:"Descanso",type:"study",hours:1},
+  {day:0,time:"22:00–22:30",title:"X · INVERSIONES",sub:"Publicar / revisar contenido",type:"project",project:"x",hours:.5},
 
-  {day:1,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
-  {day:1,time:"14:00–14:40",title:"DAW · REPÀS / TASQUES",sub:"Estudi",type:"study"},
-  {day:1,time:"15:00–15:55",title:"M06_06 · BALLE",sub:"DAW",type:"class"},
-  {day:1,time:"16:00–16:50",title:"M06_06 · BALLE",sub:"DAW",type:"class"},
-  {day:1,time:"17:00–17:45",title:"TUT_D · BALLE",sub:"DAW",type:"class"},
-  {day:1,time:"18:15–19:10",title:"M12_0 · CRESP / DOME",sub:"NO FER M12",type:"class",skip:true},
-  {day:1,time:"19:10–20:05",title:"M12_0 · DOME / GISTA",sub:"NO FER M12",type:"class",skip:true},
-  {day:1,time:"20:05–21:00",title:"M12_0",sub:"NO FER M12",type:"class",skip:true},
+  // MARTES
+  {day:1,time:"08:00–13:00",title:"PRÁCTICAS",sub:"Empresa · dual",type:"practice",hours:5},
+  {day:1,time:"13:00–14:00",title:"COMER",sub:"Descanso",type:"study",hours:1},
+  {day:1,time:"14:00–14:40",title:"DAW / TAREAS",sub:"Estudio",type:"study",hours:.67},
+  {day:1,time:"15:00–15:55",title:"M06",sub:"DAW",type:"class",hours:.92},
+  {day:1,time:"16:00–16:50",title:"M06",sub:"DAW",type:"class",hours:.83},
+  {day:1,time:"16:50–17:00",title:"DESCANSO",sub:"Pausa",type:"study",hours:.17},
+  {day:1,time:"17:00–17:45",title:"TUT",sub:"DAW",type:"class",hours:.75},
+  {day:1,time:"17:45–18:15",title:"DESCANSO",sub:"Transición",type:"study",hours:.5},
+  {day:1,time:"18:15–19:30",title:"GYM",sub:"Sesión base",type:"gym",hours:1.25},
+  {day:1,time:"19:30–21:00",title:"WEBS / HYPEDROP",sub:"Construcción + experimento afiliación",type:"project",project:"mixed",hours:1.5},
+  {day:1,time:"21:00–22:00",title:"CENA",sub:"Descanso",type:"study",hours:1},
+  {day:1,time:"22:00–22:30",title:"X · INVERSIONES",sub:"Publicar / automatización",type:"project",project:"x",hours:.5},
 
-  {day:2,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
-  {day:2,time:"13:45–14:45",title:"GYM",sub:"Sessió base",type:"gym"},
-  {day:2,time:"15:15–16:30",title:"WEB MONETITZABLE",sub:"Treball profund",type:"project"},
-  {day:2,time:"16:50–17:45",title:"OPT_D · CRESP",sub:"DAW",type:"class"},
-  {day:2,time:"18:15–19:10",title:"M07_0 · GISTA",sub:"DAW",type:"class"},
-  {day:2,time:"19:10–20:05",title:"M07_0 · GISTA",sub:"DAW",type:"class"},
-  {day:2,time:"20:05–21:00",title:"M12_0 · CRESP",sub:"NO FER M12",type:"class",skip:true},
+  // MIÉRCOLES
+  {day:2,time:"08:00–13:00",title:"PRÁCTICAS",sub:"Empresa · dual",type:"practice",hours:5},
+  {day:2,time:"13:00–13:45",title:"COMER",sub:"Descanso",type:"study",hours:.75},
+  {day:2,time:"13:45–14:45",title:"GYM",sub:"Sesión base · prioritario",type:"gym",hours:1},
+  {day:2,time:"14:45–15:15",title:"DUCHA",sub:"Transición",type:"study",hours:.5},
+  {day:2,time:"15:15–16:30",title:"WEBS MONETIZABLES",sub:"Día fuerte de web",type:"project",project:"web",hours:1.25},
+  {day:2,time:"16:30–16:50",title:"DESCANSO",sub:"Pausa",type:"study",hours:.33},
+  {day:2,time:"16:50–17:45",title:"OPT",sub:"DAW",type:"class",hours:.92},
+  {day:2,time:"17:45–18:15",title:"DESCANSO",sub:"Transición",type:"study",hours:.5},
+  {day:2,time:"18:15–19:10",title:"M07",sub:"DAW",type:"class",hours:.92},
+  {day:2,time:"19:10–20:05",title:"M07",sub:"DAW",type:"class",hours:.92},
+  {day:2,time:"20:05–21:00",title:"X · INVERSIONES",sub:"Contenido + afiliación",type:"project",project:"x",hours:.92},
+  {day:2,time:"21:00–22:00",title:"CENA",sub:"Descanso",type:"study",hours:1},
 
-  {day:3,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
-  {day:3,time:"14:00–14:40",title:"DAW · REPÀS / TASQUES",sub:"Estudi",type:"study"},
-  {day:3,time:"15:00–15:55",title:"IPO2_1 · AGUIL",sub:"No fer IPO II",type:"class",skip:true},
-  {day:3,time:"16:00–16:50",title:"M06_06 · BALLE",sub:"DAW",type:"class"},
-  {day:3,time:"17:00–17:45",title:"M08_6 · VAZQU",sub:"DAW",type:"class"},
-  {day:3,time:"18:15–19:10",title:"M09_06 · BALLE",sub:"DAW",type:"class"},
-  {day:3,time:"19:10–20:05",title:"M12_0 · DOME / GISTA",sub:"NO FER M12",type:"class",skip:true},
+  // JUEVES
+  {day:3,time:"08:00–13:00",title:"PRÁCTICAS",sub:"Empresa · dual",type:"practice",hours:5},
+  {day:3,time:"13:00–14:00",title:"COMER",sub:"Descanso",type:"study",hours:1},
+  {day:3,time:"14:00–14:40",title:"DAW",sub:"Tareas / estudio",type:"study",hours:.67},
+  {day:3,time:"15:00–16:15",title:"GYM",sub:"Sesión base · hueco de IPO II",type:"gym",hours:1.25},
+  {day:3,time:"16:15–16:50",title:"DUCHA / DESCANSO",sub:"Transición",type:"study",hours:.58},
+  {day:3,time:"16:50–17:45",title:"M06",sub:"DAW",type:"class",hours:.92},
+  {day:3,time:"17:45–18:15",title:"DESCANSO",sub:"Pausa",type:"study",hours:.5},
+  {day:3,time:"18:15–19:10",title:"M08",sub:"DAW",type:"class",hours:.92},
+  {day:3,time:"19:10–20:05",title:"X · INVERSIONES",sub:"Contenido + afiliación",type:"project",project:"x",hours:.92},
+  {day:3,time:"20:05–21:00",title:"CENA",sub:"Descanso",type:"study",hours:.92},
+  {day:3,time:"21:00–22:00",title:"X · AUTOMATIZACIÓN",sub:"Sistema / procesos",type:"project",project:"x",hours:1},
 
-  {day:4,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
-  {day:4,time:"14:00–15:00",title:"DAW · TASQUES",sub:"Estudi",type:"study"},
-  {day:4,time:"15:00–15:55",title:"M09_06 · BALLE",sub:"DAW",type:"class"},
-  {day:4,time:"16:00–16:50",title:"OPT_D · CRESP",sub:"DAW",type:"class"},
-  {day:4,time:"17:00–17:45",title:"OPT_D · CRESP",sub:"DAW",type:"class"},
-  {day:4,time:"18:00–19:15",title:"GYM",sub:"Sessió base",type:"gym"},
-  {day:4,time:"20:00–22:00",title:"WEB MONETITZABLE",sub:"Construcció profunda",type:"project"},
+  // VIERNES
+  {day:4,time:"08:00–13:00",title:"PRÁCTICAS",sub:"Empresa · dual",type:"practice",hours:5},
+  {day:4,time:"13:00–14:00",title:"COMER",sub:"Descanso",type:"study",hours:1},
+  {day:4,time:"14:00–15:00",title:"DAW / TAREAS",sub:"Estudio",type:"study",hours:1},
+  {day:4,time:"15:00–15:55",title:"M09",sub:"DAW",type:"class",hours:.92},
+  {day:4,time:"16:00–16:50",title:"OPT",sub:"DAW",type:"class",hours:.83},
+  {day:4,time:"17:00–17:45",title:"OPT",sub:"DAW",type:"class",hours:.75},
+  {day:4,time:"18:00–19:15",title:"GYM",sub:"Sesión base · prioritario",type:"gym",hours:1.25},
+  {day:4,time:"19:15–20:00",title:"DUCHA + COMER",sub:"Transición",type:"study",hours:.75},
+  {day:4,time:"20:00–22:00",title:"WEBS MONETIZABLES",sub:"BLOQUE PROFUNDO",type:"project",project:"web",hours:2},
+  {day:4,time:"22:00–23:30",title:"LIBRE",sub:"Gaming / amigos / descanso",type:"free",hours:1.5},
 
-  {day:5,time:"10:00–11:30",title:"GYM",sub:"Sessió opcional / completa",type:"gym"},
-  {day:5,time:"12:00–14:00",title:"WEB MONETITZABLE",sub:"Construcció",type:"project"},
-  {day:5,time:"16:00–17:30",title:"X · INVERSIONS",sub:"Contingut + afiliació",type:"project"},
-  {day:5,time:"18:00–19:00",title:"HYPEDROP",sub:"Experiment afiliació",type:"project"},
+  // SÁBADO
+  {day:5,time:"09:00–10:00",title:"DESAYUNO",sub:"Arranque",type:"study",hours:1},
+  {day:5,time:"10:00–11:30",title:"GYM",sub:"4.º entrenamiento opcional",type:"gym",hours:1.5},
+  {day:5,time:"12:00–14:00",title:"WEBS MONETIZABLES",sub:"Construcción",type:"project",project:"web",hours:2},
+  {day:5,time:"14:00–16:00",title:"COMER + DESCANSO",sub:"Tiempo personal",type:"study",hours:2},
+  {day:5,time:"16:00–17:30",title:"X · INVERSIONES",sub:"Contenido + afiliación",type:"project",project:"x",hours:1.5},
+  {day:5,time:"17:30–18:00",title:"DESCANSO",sub:"Pausa",type:"study",hours:.5},
+  {day:5,time:"18:00–19:00",title:"HYPEDROP",sub:"Experimento afiliación",type:"project",project:"hype",hours:1},
+  {day:5,time:"19:00–23:00",title:"LIBRE",sub:"Tiempo personal",type:"free",hours:4},
 
-  {day:6,time:"11:00–13:00",title:"WEB MONETITZABLE",sub:"Construcció",type:"project"},
-  {day:6,time:"13:00–14:00",title:"DAW · ORGANITZACIÓ",sub:"Tasques / estudi",type:"study"},
-  {day:6,time:"16:00–17:00",title:"X · INVERSIONS",sub:"Contingut + anàlisi",type:"project"},
-  {day:6,time:"17:00–17:30",title:"REVISIÓ SETMANAL",sub:"Planificar setmana",type:"study"},
-  {day:6,time:"18:00–19:00",title:"GYM",sub:"Opcional",type:"gym"}
+  // DOMINGO
+  {day:6,time:"10:00–11:00",title:"DESAYUNO",sub:"Arranque",type:"study",hours:1},
+  {day:6,time:"11:00–13:00",title:"WEBS MONETIZABLES",sub:"Construcción",type:"project",project:"web",hours:2},
+  {day:6,time:"13:00–14:00",title:"ORGANIZAR DAW",sub:"Tareas / estudio",type:"study",hours:1},
+  {day:6,time:"14:00–16:00",title:"COMER + DESCANSO",sub:"Tiempo personal",type:"study",hours:2},
+  {day:6,time:"16:00–17:00",title:"X · INVERSIONES",sub:"Contenido + análisis",type:"project",project:"x",hours:1},
+  {day:6,time:"17:00–17:30",title:"REVISIÓN SEMANAL",sub:"Planificar próxima semana",type:"study",hours:.5},
+  {day:6,time:"17:30–18:00",title:"LIBRE",sub:"No llenar por obligación",type:"free",hours:.5},
+  {day:6,time:"18:00–19:00",title:"GYM",sub:"Opcional",type:"gym",hours:1},
+  {day:6,time:"19:00–22:00",title:"LIBRE",sub:"Descanso",type:"free",hours:3}
 ];
 
 const defaultTasks = [
-  ["Acabar una funcionalitat de la web monetitzable",0,"web",""],
-  ["Publicar / preparar contingut per X",0,"x","22:00"],
-  ["Repàs o tasques de DAW",1,"daw","14:00"],
-  ["Avançar MVP o SEO de la web",2,"web","15:15"],
-  ["Publicar i analitzar contingut a X",3,"x","21:00"],
-  ["Fer 3 sessions de gym aquesta setmana",4,"gym","18:00"],
-  ["Construcció profunda de la web",4,"web","20:00"],
-  ["Provar una peça / link de HypeDrop",5,"hypedrop","18:00"],
-  ["Revisar mètriques dels projectes",6,"personal","17:00"],
-  ["Planificar la setmana següent",6,"personal","17:00"]
+  {id:crypto.randomUUID(),title:"Definir la idea de la próxima web monetizable",project:"web",priority:"high",date:"",done:false},
+  {id:crypto.randomUUID(),title:"Preparar 3 publicaciones para X",project:"x",priority:"medium",date:"",done:false},
+  {id:crypto.randomUUID(),title:"Investigar una oferta/producto de HypeDrop",project:"hype",priority:"low",date:"",done:false},
+  {id:crypto.randomUUID(),title:"Revisar tareas pendientes de DAW",project:"daw",priority:"medium",date:"",done:false}
 ];
 
-let data = JSON.parse(localStorage.getItem(STORAGE) || "null");
-if(!data){
-  data = {tasks: defaultTasks.map((x,i)=>({id:crypto.randomUUID(),title:x[0],day:x[1],category:x[2],time:x[3],done:false})), goals:{}};
-  save();
+let tasks = JSON.parse(localStorage.getItem("jarvisTasks") || "null") || defaultTasks;
+let taskFilter = "all";
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+function save(){ localStorage.setItem("jarvisTasks", JSON.stringify(tasks)); updateAll(); }
+
+function hoursFor(project){
+  return schedule.filter(x => x.project === project || (project === "web" && x.project === "mixed")).reduce((a,x)=>a+x.hours,0);
 }
 
-function save(){localStorage.setItem(STORAGE,JSON.stringify(data));}
-function categoryLabel(c){return {web:"💻 Webs",x:"🟡 X inversions",hypedrop:"🔵 HypeDrop",gym:"🏋️ Gym",daw:"📚 DAW",personal:"🌱 Personal"}[c]||c;}
-function today(){let d=new Date().getDay(); return d===0?6:d-1;}
-function formatToday(){return new Intl.DateTimeFormat("ca-ES",{weekday:"long",day:"numeric",month:"long"}).format(new Date());}
+function renderSchedule(){
+  const container = $("#schedule");
+  container.innerHTML = DAYS.map((day,i)=>`
+    <div class="day-col">
+      <div class="day-head"><strong>${day}</strong><span>${i<5 ? "Prácticas + DAW" : "Emprendimiento / descanso"}</span></div>
+      <div class="event-list">
+        ${schedule.filter(x=>x.day===i).map(e=>`
+          <div class="event ${e.type}">
+            <div class="time">${e.time}</div>
+            <strong>${e.title}</strong>
+            <small>${e.sub}</small>
+          </div>`).join("")}
+      </div>
+    </div>`).join("");
+}
 
 function renderTasks(){
-  const filter = document.querySelector(".filter.active")?.dataset.filter || "all";
-  const cat = document.getElementById("categoryFilter")?.value || "all";
-  const list = data.tasks.filter(t => (filter==="all" || (filter==="done"?t.done:!t.done)) && (cat==="all"||t.category===cat));
-  document.getElementById("allTasks").innerHTML = list.length ? list.map(taskHTML).join("") : `<div class="empty-day">No hi ha tasques amb aquest filtre.</div>`;
-  const todayTasks = data.tasks.filter(t=>t.day===today()).slice(0,8);
-  document.getElementById("todayTasks").innerHTML = todayTasks.length ? todayTasks.map(taskHTML).join("") : `<div class="empty-day">Cap tasca afegida per avui.</div>`;
-  bindTaskEvents();
-  updateProgress();
+  const list = $("#tasksList");
+  let visible = tasks.filter(t => taskFilter==="all" || (taskFilter==="done" ? t.done : !t.done));
+  visible.sort((a,b)=>Number(a.done)-Number(b.done) || ({high:0,medium:1,low:2}[a.priority]-{high:0,medium:1,low:2}[b.priority]));
+  list.innerHTML = visible.length ? visible.map(task => `
+    <div class="task-row">
+      <button class="check ${task.done?"done":""}" data-toggle="${task.id}">${task.done?"✓":""}</button>
+      <div class="task-content ${task.done?"done":""}">
+        <strong>${escapeHtml(task.title)}</strong>
+        <small>${projectName(task.project)}${task.date ? " · "+task.date : ""}</small>
+      </div>
+      <span class="priority ${task.priority}">${priorityName(task.priority)}</span>
+      <button class="delete-task" data-delete="${task.id}">×</button>
+    </div>`).join("") : `<div class="panel"><p style="color:var(--muted)">No hay tareas aquí. Milagro estadístico.</p></div>`;
 }
-function taskHTML(t){
-  return `<div class="task-item ${t.done?"done":""}">
-    <input class="check" type="checkbox" data-id="${t.id}" ${t.done?"checked":""}>
-    <div class="task-content"><div class="task-name">${escapeHtml(t.title)}</div><div class="task-meta">${categoryLabel(t.category)} · ${DAYS[t.day]}${t.time?" · "+t.time:""}</div></div>
-    <button class="task-delete" data-delete="${t.id}" title="Eliminar">×</button>
-  </div>`;
+
+function renderPriority(){
+  const list = $("#priorityTasks");
+  const pending = tasks.filter(t=>!t.done).sort((a,b)=>({high:0,medium:1,low:2}[a.priority]-{high:0,medium:1,low:2}[b.priority])).slice(0,4);
+  list.innerHTML = pending.length ? pending.map(t=>`
+    <div class="task-row">
+      <button class="check" data-toggle="${t.id}"></button>
+      <div class="task-content"><strong>${escapeHtml(t.title)}</strong><small>${projectName(t.project)}</small></div>
+      <span class="priority ${t.priority}">${priorityName(t.priority)}</span>
+    </div>`).join("") : `<p style="color:var(--muted);font-size:12px">Todo limpio. Sospechosamente limpio.</p>`;
 }
-function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
-function bindTaskEvents(){
-  document.querySelectorAll(".check").forEach(el=>el.onchange=()=>{const t=data.tasks.find(x=>x.id===el.dataset.id);if(t){t.done=el.checked;save();renderTasks();}});
-  document.querySelectorAll("[data-delete]").forEach(el=>el.onclick=()=>{data.tasks=data.tasks.filter(t=>t.id!==el.dataset.delete);save();renderTasks();});
-}
-function updateProgress(){
-  const total=data.tasks.length, done=data.tasks.filter(t=>t.done).length;
-  const p=total?Math.round(done/total*100):0;
-  document.getElementById("weekProgress").textContent=p+"%";
-}
-function renderSchedule(){
-  document.getElementById("scheduleGrid").innerHTML = DAYS.map((day,i)=>{
-    const events=schedule.filter(x=>x.day===i);
-    return `<div class="day-column"><div class="day-head"><strong>${day}</strong><small>${i<5?"Pràctiques + DAW":"Focus personal"}</small></div>
-      ${events.map(e=>`<div class="schedule-event ${e.type}" style="${e.skip?'opacity:.28':''}">
-        <div class="schedule-time">${e.time}</div><div class="schedule-title">${e.title}</div><div class="schedule-sub">${e.sub}</div>
-      </div>`).join("")}</div>`;
+
+function renderMini(){
+  $("#weekMini").innerHTML = DAYS.map((d,i)=>{
+    const p = schedule.filter(x=>x.day===i && x.type==="project").reduce((a,x)=>a+x.hours,0);
+    const gym = schedule.filter(x=>x.day===i && x.type==="gym").reduce((a,x)=>a+x.hours,0);
+    const total = schedule.filter(x=>x.day===i).reduce((a,x)=>a+x.hours,0);
+    const pct = Math.min(100, total ? (p/Math.max(total,8))*100 : 0);
+    return `<div class="mini-day"><strong>${d}</strong><div class="mini-bar"><span style="width:${pct}%"></span></div><small>${fmtHours(p)} negocio · ${fmtHours(gym)} gym</small></div>`;
   }).join("");
 }
-function openModal(){document.getElementById("taskModal").classList.remove("hidden");document.getElementById("taskTitle").focus();}
-function closeModal(){document.getElementById("taskModal").classList.add("hidden");document.getElementById("taskForm").reset();}
 
-document.querySelectorAll(".nav-btn").forEach(btn=>btn.onclick=()=>showSection(btn.dataset.section));
-document.querySelectorAll("[data-section-link]").forEach(btn=>btn.onclick=()=>showSection(btn.dataset.sectionLink));
-function showSection(id){
-  document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id===id));
-  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.section===id));
-  const titles={dashboard:"Dashboard",week:"Horari setmanal",tasks:"Tasques",projects:"Projectes"};
-  document.getElementById("pageTitle").textContent=titles[id];
+function updateStats(){
+  const baseGym = schedule.filter(x=>x.type==="gym" && x.day<5);
+  $("#gymStat").textContent = `${baseGym.length}/3`;
+  const business = schedule.filter(x=>x.type==="project").reduce((a,x)=>a+x.hours,0);
+  $("#businessHours").textContent = fmtHours(business);
+  const done = tasks.filter(t=>t.done).length;
+  const pct = tasks.length ? Math.round(done/tasks.length*100) : 0;
+  $("#taskStat").textContent = pct+"%";
+  $("#heroPercent").textContent = pct+"%";
+  $("#heroRing").style.background = `conic-gradient(#e9eff4 ${pct*3.6}deg,#27313b 0deg)`;
+  $("#webHours").textContent = fmtHours(hoursFor("web"));
+  $("#xHours").textContent = fmtHours(hoursFor("x"));
+  $("#hypeHours").textContent = fmtHours(hoursFor("hype"));
+}
+
+function updateNext(){
+  const now = new Date();
+  const day = (now.getDay()+6)%7;
+  const minutes = now.getHours()*60+now.getMinutes();
+  const candidates = schedule.filter(x=>x.day===day).map(x=>({...x,start:toMin(x.time)})).filter(x=>x.start>=minutes);
+  const next = candidates[0] || schedule.find(x=>x.day===(day+1)%7);
+  $("#nextBlock").innerHTML = next ? `<div class="time">${DAYS[next.day]} · ${next.time}</div><strong>${next.title}</strong><span>${next.sub}</span>` : `<strong>Semana libre</strong>`;
+  $("#dailyBrief").textContent = `Hoy: ${DAYS[day]}. Tienes ${fmtHours(schedule.filter(x=>x.day===day && x.type==="project").reduce((a,x)=>a+x.hours,0))} de emprendimiento y ${fmtHours(schedule.filter(x=>x.day===day && x.type==="gym").reduce((a,x)=>a+x.hours,0))} de Gym programados.`;
+}
+
+function updateAll(){ renderTasks();renderPriority();renderMini();updateStats();updateNext(); }
+
+function projectName(p){return {web:"Webs monetizables",x:"X · Inversiones",hype:"HypeDrop",daw:"DAW",other:"Personal"}[p]||p}
+function priorityName(p){return {high:"Alta",medium:"Media",low:"Baja"}[p]}
+function fmtHours(h){return Number.isInteger(h)?h+"h":h.toFixed(1).replace(".",",")+"h"}
+function toMin(range){return Number(range.split("–")[0].split(":")[0])*60+Number(range.split("–")[0].split(":")[1])}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+
+function openModal(){ $("#taskModal").classList.add("open"); $("#taskTitle").focus(); }
+function closeModal(){ $("#taskModal").classList.remove("open"); $("#taskForm").reset(); }
+
+$$(".nav-btn").forEach(btn=>btn.addEventListener("click",()=>showView(btn.dataset.view)));
+$$("[data-go]").forEach(btn=>btn.addEventListener("click",()=>showView(btn.dataset.go)));
+function showView(view){
+  $$(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
+  $$(".view").forEach(v=>v.classList.toggle("active",v.id===view));
+  $("#pageTitle").textContent={dashboard:"Dashboard",week:"Horario",tasks:"Tareas",projects:"Proyectos"}[view];
   window.scrollTo({top:0,behavior:"smooth"});
 }
-document.getElementById("addTaskTop").onclick=openModal;
-document.getElementById("addTaskMain").onclick=openModal;
-document.getElementById("closeModal").onclick=closeModal;
-document.getElementById("taskModal").onclick=e=>{if(e.target.id==="taskModal")closeModal();};
-document.getElementById("taskForm").onsubmit=e=>{
+
+$("#quickAddBtn").onclick=openModal;
+$("#addTaskBtn2").onclick=openModal;
+$("#closeModal").onclick=closeModal;
+$("#taskModal").addEventListener("click",e=>{if(e.target.id==="taskModal")closeModal()});
+
+$("#taskForm").addEventListener("submit",e=>{
   e.preventDefault();
-  data.tasks.push({id:crypto.randomUUID(),title:document.getElementById("taskTitle").value.trim(),day:+document.getElementById("taskDay").value,category:document.getElementById("taskCategory").value,time:document.getElementById("taskTime").value,done:false});
-  save();closeModal();renderTasks();showSection("tasks");
-};
-document.querySelectorAll(".filter").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderTasks();});
-document.getElementById("categoryFilter").onchange=renderTasks;
-document.querySelectorAll("[data-goal]").forEach(el=>{
-  const key=el.dataset.goal; el.checked=!!data.goals[key];
-  el.onchange=()=>{data.goals[key]=el.checked;save();};
+  tasks.push({
+    id:crypto.randomUUID(),title:$("#taskTitle").value.trim(),project:$("#taskProject").value,
+    priority:$("#taskPriority").value,date:$("#taskDate").value,done:false
+  });
+  save();closeModal();showView("tasks");
 });
-document.getElementById("resetData").onclick=()=>{
-  if(confirm("Això eliminarà les tasques i configuració guardades. Continuar?")){
-    localStorage.removeItem(STORAGE);location.reload();
-  }
+
+document.addEventListener("click",e=>{
+  const toggle=e.target.closest("[data-toggle]");
+  if(toggle){const t=tasks.find(x=>x.id===toggle.dataset.toggle);if(t){t.done=!t.done;save();}}
+  const del=e.target.closest("[data-delete]");
+  if(del){tasks=tasks.filter(x=>x.id!==del.dataset.delete);save();}
+});
+
+$$(".filter").forEach(b=>b.addEventListener("click",()=>{
+  $$(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");taskFilter=b.dataset.filter;renderTasks();
+}));
+
+$("#resetBtn").onclick=()=>{
+  if(confirm("¿Borrar todas las tareas y volver a la configuración inicial?")){tasks=defaultTasks;save();}
 };
 
-document.getElementById("todayLabel").textContent=formatToday();
-document.getElementById("todayHeading").textContent="Tasques d'avui · "+DAYS[today()];
-renderSchedule();renderTasks();
+const dateNow = new Date();
+$("#todayLabel").textContent = dateNow.toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"});
+$("#greeting").textContent = dateNow.getHours()<14 ? "Buenos días, Marc." : dateNow.getHours()<20 ? "Buenas tardes, Marc." : "Buenas noches, Marc.";
+
+renderSchedule();
+updateAll();
