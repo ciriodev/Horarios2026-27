@@ -1,32 +1,37 @@
-# JARVIS · Centro de mando semanal
+# Plan Setmanal · DAW + Emprenedoria
 
-Web estática para organizar:
+Web personal per organitzar:
+- Pràctiques 08:00–13:00
+- Horari de DAW
+- Gym
+- Webs monetitzables
+- Afiliació X inversions
+- Afiliació HypeDrop
+- Tasques i objectius setmanals
 
-- Prácticas 08:00–13:00
-- Horario de DAW
-- Gym prioritario
-- Webs monetizables
-- X · Inversiones
-- Afiliación HypeDrop
-- Descanso y revisión semanal
-- Tareas con checklist
-- Proyectos y horas asignadas
+## Característiques
 
-## Uso
+- Dashboard amb progrés setmanal.
+- Horari complet.
+- Checklist de tasques.
+- Crear tasques personalitzades.
+- Filtrar per estat i categoria.
+- Objectius setmanals.
+- Persistència amb `localStorage`.
+- Responsive per mòbil.
+- No necessita backend ni base de dades.
 
-No necesita backend.
+## GitHub Pages
 
-1. Abre `index.html`.
-2. Añade tareas desde "Nueva tarea".
-3. Las tareas se guardan automáticamente con `localStorage`.
-4. Para publicarla, sube los archivos a un repositorio de GitHub y activa GitHub Pages.
+1. Puja `index.html`, `style.css` i `script.js` al repositori.
+2. Ves a **Settings → Pages**.
+3. Selecciona la branca `main` i la carpeta `/root`.
+4. Guarda i espera a la publicació.
 
-## Estructura
+Les dades de les tasques es guarden al navegador de cada dispositiu mitjançant `localStorage`.
 
-- `index.html`
-- `style.css`
-- `script.js`
+### Criteri de l'horari
+Els blocs que abans corresponien a IPO II i M12 s'han reutilitzat com a temps disponible per a Gym, webs, X i HypeDrop. No es tracten com a hores buides.
 
-## Nota
-
-IPO II y M12 no aparecen como asignaturas activas. Sus huecos se utilizan según el horario definitivo: Gym, emprendimiento, descanso o tiempo flexible.
+### Horario actualizado
+Incluye prácticas 08:00–13:00, clases de DAW, Gym prioritario, bloques de Webs Monetizables, X Inversiones y HypeDrop, además de comida, descansos y revisión semanal. IPO II y M12 no se cursan y sus huecos se reutilizan.
