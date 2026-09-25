@@ -9,6 +9,7 @@ const schedule = [
   {day:0,time:"18:15–19:10",title:"M07_0 · GISTA",sub:"DAW",type:"class"},
   {day:0,time:"19:10–20:05",title:"M12_0 · CRESP / GISTA",sub:"NO FER M12",type:"class",skip:true},
   {day:0,time:"20:05–21:00",title:"M12_0 · CRESP / GISTA",sub:"NO FER M12",type:"class",skip:true},
+  {day:0,time:"22:00–22:30",title:"X · INVERSIONS",sub:"Publicar / revisar contingut",type:"project"},
 
   {day:1,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
   {day:1,time:"14:00–14:40",title:"DAW · REPÀS / TASQUES",sub:"Estudi",type:"study"},
@@ -18,6 +19,7 @@ const schedule = [
   {day:1,time:"18:15–19:10",title:"M12_0 · CRESP / DOME",sub:"NO FER M12",type:"class",skip:true},
   {day:1,time:"19:10–20:05",title:"M12_0 · DOME / GISTA",sub:"NO FER M12",type:"class",skip:true},
   {day:1,time:"20:05–21:00",title:"M12_0",sub:"NO FER M12",type:"class",skip:true},
+  {day:1,time:"22:00–22:30",title:"X · INVERSIONS",sub:"Publicar / automatització",type:"project"},
 
   {day:2,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
   {day:2,time:"13:45–14:45",title:"GYM",sub:"Sessió base",type:"gym"},
@@ -34,6 +36,7 @@ const schedule = [
   {day:3,time:"17:00–17:45",title:"M08_6 · VAZQU",sub:"DAW",type:"class"},
   {day:3,time:"18:15–19:10",title:"M09_06 · BALLE",sub:"DAW",type:"class"},
   {day:3,time:"19:10–20:05",title:"M12_0 · DOME / GISTA",sub:"NO FER M12",type:"class",skip:true},
+  {day:3,time:"21:00–22:00",title:"X · INVERSIONS",sub:"Contingut + afiliació",type:"project"},
 
   {day:4,time:"08:00–13:00",title:"PRÀCTIQUES",sub:"Empresa · dual",type:"practice"},
   {day:4,time:"14:00–15:00",title:"DAW · TASQUES",sub:"Estudi",type:"study"},
